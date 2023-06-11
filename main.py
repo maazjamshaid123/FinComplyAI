@@ -18,18 +18,15 @@ with col2:
     # st.image("logo.png")
     st.title("$FinComplyAI$")
 st.markdown('---')
-
-# Create a file uploader component
+st.info("FinComplyAI™ is diligently working on a groundbreaking solution that harnesses the potential of Artificial Intelligence and Machine Learning to transform intricate data sets into intelligible insights. Our innovative approach aims to revolutionize the way  companies comprehend and analyze information, empowering them to make well-informed decisions with ease and efficiency. Stay tuned for the unveiling of our cutting-edge, game-changing technology.")
+st.markdown("---")
 uploaded_file = st.file_uploader('Upload a CSV file', type=['csv'])
 
 if uploaded_file is not None:
-    # Read the CSV file into a pandas DataFrame
     df = pd.read_csv(uploaded_file)
 
-    # Display the DataFrame
     st.write(df)
 
-    # Convert the DataFrame to a string of text
     text = df.to_string(index=False)
 
     text = text[:4097]
@@ -50,10 +47,9 @@ if uploaded_file is not None:
             ChatGPT_reply = response["choices"][0]["message"]["content"]
             messages.append({"role": "assistant", "content": ChatGPT_reply})
             return ChatGPT_reply
-        # Use the text as user input to GPT's API
+        
         response = CustomChatGPT(text)
 
-        # Display the response
         st.text_area('FinComplyAI:', value=response, height=150, max_chars=None, key=None)
         
     if st.button('NEGATIVE NEWS'):
@@ -72,9 +68,7 @@ if uploaded_file is not None:
             ChatGPT_reply = response["choices"][0]["message"]["content"]
             messages.append({"role": "assistant", "content": ChatGPT_reply})
             return ChatGPT_reply
-        # Use the text as user input to GPT's API
         response = CustomChatGPT(text)
 
-        # Display the response
         st.text_area('FinComplyAI:', value=response, height=150, max_chars=None, key=None)
 
