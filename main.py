@@ -55,3 +55,26 @@ if uploaded_file is not None:
 
         # Display the response
         st.text_area('FinComplyAI:', value=response, height=150, max_chars=None, key=None)
+        
+    if st.button('NEGATIVE NEWS'):
+        prompt = 'prompt_NN.txt'
+        with open(prompt, 'r') as file:
+            content = file.read()
+
+        messages = [{"role": "system", "content": f"Produce a Negative News Report using the following format: {content}"}]
+
+        def CustomChatGPT(user_input):
+            messages.append({"role": "user", "content": user_input})
+            response = openai.ChatCompletion.create(
+                model = "gpt-3.5-turbo",
+                messages = messages
+            )
+            ChatGPT_reply = response["choices"][0]["message"]["content"]
+            messages.append({"role": "assistant", "content": ChatGPT_reply})
+            return ChatGPT_reply
+        # Use the text as user input to GPT's API
+        response = CustomChatGPT(text)
+
+        # Display the response
+        st.text_area('FinComplyAI:', value=response, height=150, max_chars=None, key=None)
+
