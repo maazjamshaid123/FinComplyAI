@@ -1,0 +1,66 @@
+FINCOMPLYAI TRANSACTIONAL ANALYSIS REPORT
+
+Client: Cardin
+Account Analyzed: N/A
+Date Range Analyzed: January 1, 2023, to December 31, 2023
+
+OVERALL TRANSACTIONS:
+
+Credits: 12 transactions totaling $23,268.92
+Debits: 16 transactions totaling $58,955.96
+
+CREDIT ACTIVITY:
+
+International Wires: 2 transactions totaling $12,127.60, primarily from:
+- Exxon Mobil: 1 transaction, $8,509.05 (Italy)
+- Target Corp.: 1 transaction, $5,359.79 (USA)
+
+Domestic Wires: N/A
+
+Cash Deposits: 2 transactions totaling $7,912.62
+
+Check Deposits: 1 transaction totaling $2,326.68
+
+Internal Transfers: 7 transactions totaling $117,744.01
+
+ACH Deposits: 1 transaction totaling $5,685.66, from Exxon Mobil
+
+DEBIT ACTIVITY:
+
+International Wire Out: 5 transactions totaling $19,818.25, primarily to:
+- PepsiCo: 1 transaction, $5,443.26
+- Exxon Mobil: 1 transaction, $8,509.05 (Italy)
+- Ford Motor: 1 transaction, $5,002.70 (Italy)
+
+Domestic Wire Out: 4 transactions totaling $23,930.54, primarily to:
+- AT&T: 2 transactions, $9,639.70
+- General Motors: 1 transaction, $7,776.89
+
+Cash Withdrawals: 3 transactions totaling $6,710.40
+
+Check Debits: 5 transactions totaling $12,354.54
+
+Internal Transfers: 4 transactions totaling $18,713.69
+
+ACH Debits: 2 transactions totaling $10,977.28, primarily from:
+- Bank of America Corp.: 1 transaction, $1,858.23
+
+COUNTRY REPORT:
+
+The transactions involve countries such as USA, Italy, Canada, Brazil, and Mexico.
+
+EFT REPORT:
+
+Unable to generate EFT report without complete account information.
+
+CASH REPORT:
+
+No pattern of cash transactions can be identified due to low volume.
+
+SPIKES AND LULLS REPORT:
+
+The monthly transactions of the client did not show any patterns of spikes and lulls.
+
+RISK ASSESSMENT:
+
+The transactions indicate that Cardin has a low level of transactional activity overall and no excessive spikes and lulls in their activity throughout the year. The client's international transactions can be a potential source of scrutiny, especially the transaction with Mexico. Given the low transaction volume, the account may require further assessment to ensure whether the account is in line with the client's business activities and operating countries.

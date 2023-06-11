@@ -1,12 +1,16 @@
 import streamlit as st
 import pandas as pd
-from finai import CustomChatGPT
+import openai
 
 st.set_page_config(page_title='FinComplyAI-Prototype', layout='wide', menu_items={
     'Get Help': 'https://www.linkedin.com/in/maazjamshaid/',
     'Report a bug': 'https://www.linkedin.com/in/maazjamshaid/',
     'About': 'by [Maaz Jamshaid](https://www.linkedin.com/in/maazjamshaid/), maaz@astroalgo.com'
 })
+
+
+key = "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"
+openai.api_key = key
 
 st.markdown('---')
 col1,col2,col3 = st.columns(3)
@@ -30,7 +34,22 @@ if uploaded_file is not None:
 
     text = text[:4097]
 
-    if st.button('Summarize'):
+    if st.button('TRANSACTION ANALYSIS REPORT'):
+        prompt = 'prompt_TAR.txt'
+        with open(prompt, 'r') as file:
+            content = file.read()
+
+        messages = [{"role": "system", "content": f"Produce a Tranactional Analysis Report using the following instructions: {content}"}]
+
+        def CustomChatGPT(user_input):
+            messages.append({"role": "user", "content": user_input})
+            response = openai.ChatCompletion.create(
+                model = "gpt-3.5-turbo",
+                messages = messages
+            )
+            ChatGPT_reply = response["choices"][0]["message"]["content"]
+            messages.append({"role": "assistant", "content": ChatGPT_reply})
+            return ChatGPT_reply
         # Use the text as user input to GPT's API
         response = CustomChatGPT(text)
 
