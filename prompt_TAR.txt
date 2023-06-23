@@ -4,7 +4,7 @@ ACCOUNTS ANALYeZED:
 
 CREDIT ACTIVITY:
 
-International Wires: [Number of International Wire Transactions] transactions totaling [$International Wire Total Amount], primarily from:
+International Wires: [Number of International Wire Transactions for all Accounts money was sent from] transactions totaling [$International Wire Total Amount], primarily from:
 
 [Counterparty 1]: [Number of Counterparty 1 Transactions], [$Counterparty 1 Amount]
 [Counterparty 2]: [Number of Counterparty 2 Transactions], [$Counterparty 2 Amount]
