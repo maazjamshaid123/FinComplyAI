@@ -8,6 +8,8 @@ st.set_page_config(page_title='FinComplyAI-Prototype', layout='wide', menu_items
     'About': 'by [Maaz Jamshaid](https://www.linkedin.com/in/maazjamshaid/), maaz@astroalgo.com'
 })
 
+st.sidebar.title("$FinComplyAI$")
+st.markdown('---')
 key = st.sidebar.text_input("ENTER API KEY")
 openai.api_key = key
 
