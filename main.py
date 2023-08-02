@@ -2,25 +2,6 @@ import streamlit as st
 import pandas as pd
 import openai
 
-st.set_page_config(page_title='FinComplyAI-Prototype', layout='wide', menu_items={
-    'Get Help': 'https://www.linkedin.com/in/maazjamshaid/',
-    'Report a bug': 'https://www.linkedin.com/in/maazjamshaid/',
-    'About': 'by [Maaz Jamshaid](https://www.linkedin.com/in/maazjamshaid/), maaz@astroalgo.com'
-})
-
-st.sidebar.image("fincomply.png")
-st.markdown('---')
-key = st.sidebar.text_input("ENTER API KEY")
-openai.api_key = key
-
-st.markdown('---')
-col1, col2, col3 = st.columns(3)
-with col2:
-    st.title("$FinComplyAI$")
-st.markdown('---')
-st.info("FinComplyAI™ is diligently working on a groundbreaking solution that harnesses the potential of Artificial Intelligence and Machine Learning to transform intricate data sets into intelligible insights. Our innovative approach aims to revolutionize the way companies comprehend and analyze information, empowering them to make well-informed decisions with ease and efficiency. Stay tuned for the unveiling of our cutting-edge, game-changing technology.")
-
-st.markdown("---")
 # Add the text fields
 col1,col2 = st.columns(2)
 with col1:
