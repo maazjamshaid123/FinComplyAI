@@ -20,7 +20,7 @@ openai.api_key = key
 
 PAGE_DICT = {
     "What is FinComplyAI? 🧠": show_intro,
-    "Transaction Analysis 💳": show_analysis,
+    "Transaction Analysis 💳": show_tar,
     "Negative News 📰": show_wait,
 }
 page = st.sidebar.selectbox("Get Started", PAGE_DICT)
@@ -36,7 +36,7 @@ if page == "What is FinComplyAI? 🧠": #FIRST PAGE
 #***********************************************************************************************
        
 elif page == "Transaction Analysis 💳": #SECOND PAGE
-    show_analysis()
+    show_tar()
     
 #***********************************************************************************************
 
