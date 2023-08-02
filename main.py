@@ -8,7 +8,7 @@ st.set_page_config(page_title='FinComplyAI-Prototype', layout='wide', menu_items
     'About': 'by [Maaz Jamshaid](https://www.linkedin.com/in/maazjamshaid/), maaz@astroalgo.com'
 })
 
-key = "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"
+key = "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"
 openai.api_key = key
 
 st.markdown('---')
