@@ -1,0 +1,20 @@
+Transaction Date,Account,Transaction Description,Counterparty,Amount $,Credit/Debit,Opposite Account Number,Country,FATF Country Risk Rating
+2/1/2022,34234935,Internal Transfer Out,Fund Account,4969304.55,Credit,34234934,,
+2/1/2022,34234935,Internal Transfer In,Fund Account,4437742.36,Credit,34234934,,
+2/5/2022,34234935,Domestic Wire In,Eaton and Sons,7040364.44,Credit,,,
+2/6/2022,34234935,Internal Transfer Out,Fund Account,2608398.9,Credit,34234934,,
+2/9/2022,34234934,ACH In,Little-Smith,2717766.41,Credit,,,
+2/9/2022,34234935,Domestic Wire In,Little-Smith,3544025.17,Credit,,,
+2/11/2022,34234934,ACH In,Anderson Group,4618743.87,Credit,,,
+2/11/2022,34234935,International Wire Out,Eaton and Sons,6631027.02,Credit,,Netherlands,Medium
+2/14/2022,34234934,Internal Transfer Out,Expense Account,9323504.47,Credit,34234935,,
+2/16/2022,34234935,Domestic Wire In,Eaton and Sons,5195170.19,Credit,,,
+2/17/2022,34234935,ACH In,Bradley Inc,1775671.08,Credit,,,
+2/22/2022,34234934,Domestic Wire In,"Spears, Gonzalez and Stewart",2249874.14,Credit,,,
+3/7/2022,34234934,Internal Transfer Out,Expense Account,8544438.25,Credit,34234935,,
+3/26/2022,34234934,Internal Transfer Out,Expense Account,7153199.61,Credit,34234935,,
+4/1/2022,34234934,Internal Transfer In,Expense Account,4024544,Credit,34234935,,
+4/3/2022,34234935,ACH In,"Campos, Brown and Wright",9826538.1,Credit,,,
+4/6/2022,34234935,ACH In,Wilkinson-White,9268289.03,Credit,,,
+4/13/2022,34234935,International Wire In,Eaton and Sons,8922220.28,Credit,,British Virgin Islands,High
+4/17/2022,34234934,Internal Transfer Out,Expense Account,2048006.27,Credit,34234935,,

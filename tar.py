@@ -3,9 +3,11 @@ import pandas as pd
 import openai
 
 def show_tar():
-    st.title("_Transaction Analysis_ 💳")
+    st.title("_Transaction Analysis Report_ 💳")
 
     st.markdown("---")
+    key = st.sidebar.text_input("ENTER API KEY")
+    openai.api_key = key
 
     # Add the text fields
     col1,col2 = st.columns(2)
@@ -28,26 +30,11 @@ def show_tar():
     # Add the checkboxes for selecting the number of counterparties
     st.markdown("---")
 
-    uploaded_file = st.file_uploader('Upload a CSV file', type=['csv'])
+    uploaded_file = st.sidebar.file_uploader('Upload a CSV file', type=['csv'])
 
     if uploaded_file is not None:
         # Read the CSV file
         df = pd.read_csv(uploaded_file)
-        df['Amount $'] = df['Amount $'].astype(str)
-        
-        # Calculate the total credit and debit amounts and transactions
-        credit_transactions = df[df['Credit/Debit'] == 'Credit']
-        total_credit_amount = credit_transactions['Amount $'].str.replace(',', '').str.replace('$', '').astype(float).sum()
-        total_credit_transactions = credit_transactions.shape[0]
-        
-        debit_transactions = df[df['Credit/Debit'] == 'Debit']
-        total_debit_amount = debit_transactions['Amount $'].str.replace(',', '').str.replace('$', '').astype(float).sum()
-        total_debit_transactions = debit_transactions.shape[0]
-        
-        # Display the total credit and debit amounts and transactions
-        # st.markdown(f"**Credits:** {total_credit_transactions} transactions totaling ${total_credit_amount:,.2f}")
-        # st.markdown(f"**Debits:** {total_debit_transactions} transactions totaling ${total_debit_amount:,.2f}")
-        
         # Display the DataFrame
         st.dataframe(df)
         
@@ -70,14 +57,14 @@ def show_tar():
         
             # Modify the prompt to include the new text fields and counterparty options
             TAR_intro = f"FINCOMPLYAI TRANSACTION ANALYSIS REPORT:\n\nClient Name: {client_name}\nNAICS Code: {naics_code}\nReview Period: {review_period_start} to {review_period_end}\n"
-            prompt_text = f"{content}\n\nBusiness purpose/model description: {business_description}\nWire Counterparties: {wire_counterparty_options}\nACH Counterparties: {ach_counterparty_options}\n\nCredits: {total_credit_transactions} transactions totaling ${total_credit_amount:,.2f}\nDebits: {total_debit_transactions} transactions totaling ${total_debit_amount:,.2f}"
+            prompt_text = f"{content}"
         
-            messages = [{"role": "system", "content": f"Generate a transaction analysis report based on the provided CSV file. Use the following format: \n{prompt_text}"}]
+            messages = [{"role": "system", "content": f"Generate a deep transaction analysis report based on the provided CSV file. DONOT PERFORM ANY CALCULATIONS. JUST ANALYZE THE TRENDS AND PATTERNS. TRY TO IDENTIFY ANY SUSPICIOUS TRANSACTIONS"}]
         
             def CustomChatGPT(user_input):
                 messages.append({"role": "user", "content": user_input})
                 response = openai.ChatCompletion.create(
-                    model="gpt-3.5-turbo",
+                    model="gpt-3.5-turbo-0613",
                     messages=messages
                 )
                 ChatGPT_reply = response["choices"][0]["message"]["content"]
@@ -85,5 +72,5 @@ def show_tar():
                 return ChatGPT_reply
         
             response = CustomChatGPT(text)
-            overall_tran = f"\nOVERALL TRANSACTIONS: \nCredits: {total_credit_transactions} transactions totaling ${total_credit_amount:,.2f}\nDebits: {total_debit_transactions} transactions totaling ${total_debit_amount:,.2f}"
-            st.text_area('FinComplyAI:', value=f'{TAR_intro}\n{overall_tran}\n\n{response}', height=150, max_chars=None, key=None)
+            
+            st.text_area('FinComplyAI:', value=f'{TAR_intro} \n{response}', height=150, max_chars=None, key=None)
