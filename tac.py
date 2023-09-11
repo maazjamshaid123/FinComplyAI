@@ -132,6 +132,7 @@ def show_tac():
     uploaded_file = st.sidebar.file_uploader('Upload a CSV file', type=['csv'])
     if uploaded_file is not None:
         df = pd.read_csv(uploaded_file)
+        st.dataframe(df)
 
         # Number of different transactions using transaction description
         num_unique_transactions = df['Transaction Description'].nunique()
@@ -215,9 +216,14 @@ def show_tac():
         text += f"\nACH Deposits: {num_ach_deposit_transactions} transactions totaling ${ach_deposit_total_amount} primarily from:\n"
         for counterparty, amount in ach_deposit_counterparty_info.items():
             text += f"{counterparty}: {len(ach_deposits[ach_deposits['Counterparty'] == counterparty])} transactions, ${amount}\n"
-            
+        
+        prompt = 'prompt_TAC.txt'
+        with open(prompt, 'r') as file:
+            content = file.read()
+        prompt_text = f"{content}"
+
         if st.button('GENERATE'):
-            messages = [{"role": "system", "content": f"Generate a clean ordered report based on the provided data. Heading: FINCOMPLYAI TRANSACTION ANALYSIS REPORT"}]
+            messages = [{"role": "system", "content": f"Generate a clean ordered report based on the provided data and the format. Perform simple AML risk analysis, and add context / natural language around the transaction activity and add industry types next to counterparty names" + prompt_text}]
 
             def CustomChatGPT(user_input):
                 messages.append({"role": "user", "content": user_input})
@@ -228,7 +234,7 @@ def show_tac():
                 ChatGPT_reply = response["choices"][0]["message"]["content"]
                 messages.append({"role": "assistant", "content": ChatGPT_reply})
                 return ChatGPT_reply
-            
+
             response = CustomChatGPT(text)
             
             st.text_area('FinComplyAI:', value=f'{response}', height=150, max_chars=None, key=None)

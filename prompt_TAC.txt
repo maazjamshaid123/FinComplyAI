@@ -1,0 +1,66 @@
+FINCOMPLYAI TRANSACTION ANALYSIS
+
+CREDITS:
+
+{{Number of Credits}} Credits totaled ${{Total Credits Amount}}.
+
+Breakdown of credits:
+
+1. Cash Deposits:
+   - Total: ${{Total Cash Deposits}}
+   - Number of deposits: {{Number of Cash Deposits}}
+   - Range per deposit: ${{Min Cash Deposit}} to ${{Max Cash Deposit}} per deposit.
+
+2. Domestic Wires:
+   - Total: ${{Total Domestic Wires}}
+   - Number of wires: {{Number of Domestic Wires}}
+   - Top 5 counterparties: {{List of Top 5 Domestic Wire Counterparties}}
+
+3. Check Deposits:
+   - Total: ${{Total Check Deposits}}
+   - Number of deposits: {{Number of Check Deposits}}
+
+4. ACH Deposits:
+   - Total: ${{Total ACH Deposits}}
+   - Number of deposits: {{Number of ACH Deposits}}
+   - Top 5 counterparties:
+     - {{ACH Deposits Counterparty 1}}: ${{Amount 1}}
+     - {{ACH Deposits Counterparty 2}}: ${{Amount 2}}
+     - {{ACH Deposits Counterparty 3}}: ${{Amount 3}}
+     - {{ACH Deposits Counterparty 4}}: ${{Amount 4}}
+     - {{ACH Deposits Counterparty 5}}: ${{Amount 5}}
+
+5. Internal Transfers:
+   - Total: ${{Total Internal Transfers}}
+   - Number of transfers: {{Number of Internal Transfers}}
+   - From Account {{Account From}} to Account {{Account To}}
+
+DEBITS:
+
+{{Number of Debits}} Debits totaled ${{Total Debits Amount}}.
+
+Breakdown of debits:
+
+1. Cash Withdrawals:
+   - Total: ${{Total Cash Withdrawals}}
+   - Number of withdrawals: {{Number of Cash Withdrawals}}
+   - Range per withdrawal: ${{Min Cash Withdrawal}} to ${{Max Cash Withdrawal}} per withdrawal.
+
+2. Domestic Payments:
+   - Total: ${{Total Domestic Payments}}
+   - Number of payments: {{Number of Domestic Payments}}
+   - Top 5 payees: {{List of Top 5 Domestic Payment Payees}}
+
+3. Check Payments:
+   - Total: ${{Total Check Payments}}
+   - Number of payments: {{Number of Check Payments}}
+
+4. ACH Payments:
+   - Total: ${{Total ACH Payments}}
+   - Number of payments: {{Number of ACH Payments}}
+   - Top 5 payees:
+     - {{ACH Payments Payee 1}}: ${{Amount 1}}
+     - {{ACH Payments Payee 2}}: ${{Amount 2}}
+     - {{ACH Payments Payee 3}}: ${{Amount 3}}
+     - {{ACH Payments Payee 4}}: ${{Amount 4}}
+     - {{ACH Payments Payee 5}}: ${{Amount 5}}
