@@ -134,60 +134,35 @@ def show_tac():
         df = pd.read_csv(uploaded_file)
         st.dataframe(df)
 
-        # Number of different transactions using transaction description
         num_unique_transactions = df['Transaction Description'].nunique()
-
-        # Number of different counterparties
         num_unique_counterparties = df['Counterparty'].nunique()
-
-        # Total Amount $
         total_amount = df['Amount $'].sum()
-
-        # Number of credit and debit transactions and their totals
         credit_transactions = df[df['Credit/Debit'] == 'Credit']
         debit_transactions = df[df['Credit/Debit'] == 'Debit']
         total_credit_amount = credit_transactions['Amount $'].sum()
         total_debit_amount = debit_transactions['Amount $'].sum()
         num_credit_transactions = len(credit_transactions)
         num_debit_transactions = len(debit_transactions)
-
-        # Different number of countries
         num_countries = df['Country'].nunique()
-
-        # Unique account numbers in the dataset
         unique_account_numbers = df['Account'].unique()
-
-        # FATF country risk ratings
         fatf_country_ratings = df[['Country', 'FATF Country Risk Rating']].drop_duplicates()
-
-        # Group by transaction description and calculate totals
         transaction_description_totals = df.groupby('Transaction Description')['Amount $'].sum()
-
-        # Group by counterparty and calculate totals
         counterparty_totals = df.groupby('Counterparty')['Amount $'].sum()
-
-        # Group by account and transaction type (credit/debit) and calculate totals
         account_transaction_type_totals = df.groupby(['Account', 'Credit/Debit'])['Amount $'].sum().unstack()
-
-        # Calculate average transaction amount
         average_transaction_amount = total_amount / (num_credit_transactions + num_debit_transactions)
-
-        # Group by country and calculate total transaction amount per country
         country_total_amount = df.groupby('Country')['Amount $'].sum()
-
-        # Calculate transaction count by country and FATF rating
         country_fatf_transaction_count = df.groupby(['Country', 'FATF Country Risk Rating'])['Transaction Date'].count()
-
-        # Calculate average transaction amount by transaction description
         average_amount_by_transaction = df.groupby('Transaction Description')['Amount $'].mean()
-
-        # Calculate ACH Deposits information
         ach_deposits = df[df['Transaction Description'] == 'ACH In']
         num_ach_deposit_transactions = len(ach_deposits)
         ach_deposit_total_amount = ach_deposits['Amount $'].sum()
         ach_deposit_counterparty_info = ach_deposits.groupby('Counterparty')['Amount $'].sum()
+        ach_payments = df[df['Transaction Description'] == 'ACH Out']
+        num_ach_payments_transactions = len(ach_payments)
+        ach_payments_total_amount = ach_payments['Amount $'].sum()
+        ach_payments_counterparty_info = ach_payments.groupby('Counterparty')['Amount $'].sum()
 
-        # Create a variable to store all calculations
+        
         text = f"Number of Unique Transactions: {num_unique_transactions}\n"
         text += f"Number of Unique Counterparties: {num_unique_counterparties}\n"
         text += f"Total Amount $: {total_amount}\n"
@@ -198,30 +173,26 @@ def show_tac():
         text += f"Different Number of Countries: {num_countries}\n"
         text += f"Account Numbers Analyzed: {unique_account_numbers}\n"
         text += "FATF Country Risk Ratings:\n" + fatf_country_ratings.to_string(index=False) + "\n"
-
         text += "\nTransaction Description Totals:\n" + transaction_description_totals.to_string() + "\n"
-
         text += "\nCounterparty Totals:\n" + counterparty_totals.to_string() + "\n"
-        
         text += "\nAccount Transaction Type Totals:\n" + account_transaction_type_totals.to_string() + "\n"
-
         text += f"\nAverage Transaction Amount: {average_transaction_amount}\n"
-
         text += "\nCountry Total Amount:\n" + country_total_amount.to_string() + "\n"
-
         text += "\nCountry FATF Transaction Count:\n" + country_fatf_transaction_count.to_string() + "\n"
-
         text += "\nAverage Transaction Amount by Transaction Description:\n" + average_amount_by_transaction.to_string() + "\n"
-
         text += f"\nACH Deposits: {num_ach_deposit_transactions} transactions totaling ${ach_deposit_total_amount} primarily from:\n"
         for counterparty, amount in ach_deposit_counterparty_info.items():
             text += f"{counterparty}: {len(ach_deposits[ach_deposits['Counterparty'] == counterparty])} transactions, ${amount}\n"
+        text += f"\nACH Payments: {num_ach_payments_transactions} transactions totaling ${ach_payments_total_amount} primarily from:\n"
+        for counterparty, amount in ach_payments_counterparty_info.items():
+            text += f"{counterparty}: {len(ach_payments[ach_payments['Counterparty'] == counterparty])} transactions, ${amount}\n"
         
         prompt = 'prompt_TAC.txt'
         with open(prompt, 'r') as file:
             content = file.read()
         prompt_text = f"{content}"
 
+        # st.write(text)
         if st.button('GENERATE'):
             messages = [{"role": "system", "content": f"Generate a clean ordered report based on the provided data and the format. Perform simple AML risk analysis, and add context / natural language around the transaction activity and add industry types next to counterparty names" + prompt_text}]
 

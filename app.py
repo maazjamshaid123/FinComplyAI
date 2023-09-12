@@ -8,7 +8,7 @@ from finbot import show_bot
 
 import openai
 
-st.set_page_config(page_title='FinComplyAI-Prototype', page_icon='icon.png',layout='wide', menu_items={
+st.set_page_config(page_title='FinComplyAI-Prototype', layout='wide', menu_items={
     'Get Help': 'https://www.linkedin.com/in/maazjamshaid/',
     'Report a bug': 'https://www.linkedin.com/in/maazjamshaid/',
     'About': 'by [Maaz Jamshaid](https://www.linkedin.com/in/maazjamshaid/), maaz@astroalgo.com'
