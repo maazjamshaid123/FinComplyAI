@@ -1,3 +1,19 @@
+Based on the overall transactions already provided, perform a detailed Anti-Money Laundering (AML) analysis focusing on the following areas:
+
+1. AML Risks: Identify and elaborate on the potential AML risks associated with the client's transactional activity. Consider the nature of the client's business, geographic locations involved, transaction amounts, and counterparties.
+
+2. Red Flags: Highlight any transactions or patterns of transactions that may be considered as red flags for potential money laundering or other illicit activities. This may include, but not limited to, large cash transactions, rapid movement of funds, transactions with high-risk jurisdictions, or transactions with counterparties that have negative news or are subject to sanctions.
+
+3. Recommendations: Provide recommendations for mitigating the identified risks and red flags. This may include enhanced due diligence on certain transactions or counterparties, increased monitoring of certain transaction types, or the implementation of additional controls.
+
+4. Counterparty Analysis: Analyze the counterparties involved in the transactions. Are there any counterparties that are associated with high-risk jurisdictions, industries, or have been subject to any negative media or sanctions? Provide a detailed analysis of the top 5 counterparties for Wires and ACH.
+
+Please ensure that the analysis is concise, factual, and consistent with the provided data.
+
+
+HERE IS THE FORMAT:
+
+
 FINCOMPLYAI TRANSACTION ANALYSIS
 
 CREDITS:
@@ -30,9 +46,9 @@ Breakdown of credits:
      - {{ACH Deposits Counterparty 4}}: ${{Amount 4}}
      - {{ACH Deposits Counterparty 5}}: ${{Amount 5}}
 
-5. Internal Transfers:
-   - Total: ${{Total Internal Transfers}}
-   - Number of transfers: {{Number of Internal Transfers}}
+5. Internal Transfer In:
+   - Total: ${{Total Internal Transfer In}}
+   - Number of transfers: {{Number of Internal Transfer In}}
    - From Account {{Account From}} to Account {{Account To}}
 
 DEBITS:
@@ -64,3 +80,8 @@ Breakdown of debits:
      - {{ACH Payments Payee 3}}: ${{Amount 3}}
      - {{ACH Payments Payee 4}}: ${{Amount 4}}
      - {{ACH Payments Payee 5}}: ${{Amount 5}}
+
+5. Internal Transfer Out:
+   - Total: ${{Total Internal Transfer Out}}
+   - Number of transfers: {{Number of Internal Transfer Out}}
+   - From Account {{Account From}} to Account {{Account To}}

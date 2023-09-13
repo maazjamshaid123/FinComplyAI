@@ -161,6 +161,39 @@ def show_tac():
         num_ach_payments_transactions = len(ach_payments)
         ach_payments_total_amount = ach_payments['Amount $'].sum()
         ach_payments_counterparty_info = ach_payments.groupby('Counterparty')['Amount $'].sum()
+        #cash
+        cash_deposit = df[df['Transaction Description'] == 'Cash In']
+        num_cash_deposit = len(cash_deposit)
+        cash_payment = df[df['Transaction Description'] == 'Cash Out']
+        num_cash_payment = len(cash_payment)
+        min_cash_deposit = cash_deposit['Amount $'].min()
+        max_cash_deposit = cash_deposit['Amount $'].max()
+        min_cash_payment = cash_payment['Amount $'].min()
+        max_cash_payment = cash_payment['Amount $'].max()
+        #wire
+        wire_in = df[df['Transaction Description'] == 'Domestic Wire In']
+        num_wire_in = len(wire_in)
+        wire_out = df[df['Transaction Description'] == 'Domestic Wire Out']
+        num_wire_out = len(wire_out)
+        wire_in_total_amount = wire_in['Amount $'].sum()
+        wire_out_total_amount = wire_out['Amount $'].sum()
+        wire_in_counterparty_info = wire_in.groupby('Counterparty')['Amount $'].sum()
+        wire_out_counterparty_info = wire_out.groupby('Counterparty')['Amount $'].sum()
+        #check
+        check_in = df[df['Transaction Description'] == 'Check In']
+        num_check_in = len(check_in)
+        check_out = df[df['Transaction Description'] == 'Check Out']
+        num_check_out = len(check_out)
+        # check_in_total_amount = check_in['Amount $'].sum()
+        # check_out_total_amount = check_out['Amount $'].sum()
+
+        #Internal Transfer
+        it_in = df[df['Transaction Description'] == 'Internal Transfer In']
+        it_out = df[df['Transaction Description'] == 'Internal Transfer Out']
+        num_it_in = len(it_in)
+        num_it_out = len(it_out)
+        it_in_total_amount = it_in['Amount $'].sum()
+        it_out_total_amount = it_out['Amount $'].sum()
 
         
         text = f"Number of Unique Transactions: {num_unique_transactions}\n"
@@ -172,6 +205,14 @@ def show_tac():
         text += f"Total Debit Amount: {total_debit_amount}\n"
         text += f"Different Number of Countries: {num_countries}\n"
         text += f"Account Numbers Analyzed: {unique_account_numbers}\n"
+        text += f"Total Number of Cash Deposit {num_cash_deposit}\n"
+        text += f"Total Number of Cash Withdrawals {num_cash_payment}\n"
+        text += f"Range per deposit: ${min_cash_deposit} to ${max_cash_deposit} per deposit.\n"
+        text += f"Range per withdrawal: ${min_cash_payment} to ${max_cash_payment} per payment.\n"
+        text += f"Total Number of Check Deposit {num_check_in}\n"
+        text += f"Total Number of Check Payments {num_check_out}\n"
+        text += f"Total Number of Internal Transfer In {num_it_in}\n"
+        text += f"Total Number of Internal Transfer Out {num_it_out}\n"
         text += "FATF Country Risk Ratings:\n" + fatf_country_ratings.to_string(index=False) + "\n"
         text += "\nTransaction Description Totals:\n" + transaction_description_totals.to_string() + "\n"
         text += "\nCounterparty Totals:\n" + counterparty_totals.to_string() + "\n"
@@ -186,7 +227,15 @@ def show_tac():
         text += f"\nACH Payments: {num_ach_payments_transactions} transactions totaling ${ach_payments_total_amount} primarily from:\n"
         for counterparty, amount in ach_payments_counterparty_info.items():
             text += f"{counterparty}: {len(ach_payments[ach_payments['Counterparty'] == counterparty])} transactions, ${amount}\n"
-        
+
+        text += f"\nDomestic Wires: {num_wire_in} transactions totaling ${wire_in_total_amount} primarily from:\n"
+        for counterparty, amount in wire_in_counterparty_info.items():
+            text += f"{counterparty}: {len(wire_in[wire_in['Counterparty'] == counterparty])} transactions, ${amount}\n"
+        text += f"\nDomestic Payments: {num_wire_out} transactions totaling ${wire_out_total_amount} primarily from:\n"
+        for counterparty, amount in wire_out_counterparty_info.items():
+            text+= f"{counterparty}: {len(wire_out[wire_out['Counterparty'] == counterparty])} transactions, ${amount}\n"
+
+
         prompt = 'prompt_TAC.txt'
         with open(prompt, 'r') as file:
             content = file.read()
