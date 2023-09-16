@@ -10,6 +10,7 @@ Based on the overall transactions already provided, perform a detailed Anti-Mone
 
 Please ensure that the analysis is concise, factual, and consistent with the provided data.
 
+Assess the activity's reasonableness for the client's industry and ascertain the daily/monthly averages of cash in activity or cash out activity's reasonableness for the client's industry.
 
 HERE IS THE FORMAT:
 

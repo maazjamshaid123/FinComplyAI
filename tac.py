@@ -127,6 +127,11 @@ def show_tac():
     st.title("_Transaction Analysis Calculations_ ➕➗")
 
     st.markdown("---")
+    nature = st.text_input("Nature of Business")
+    options = ["Top 5", "Top 10", "Top 5% or Maximum of 20", "Top 10% or Maximum of 20", "Variety Top 10 (Mix of Large, Medium, and Small Transactions)"]
+    counterparty_option = st.selectbox("Counterparty Sample Output:", options)
+    st.text(f"You selected: {counterparty_option}")
+
     key = st.sidebar.text_input("ENTER API KEY")
     openai.api_key = key
     uploaded_file = st.sidebar.file_uploader('Upload a CSV file', type=['csv'])
@@ -243,7 +248,7 @@ def show_tac():
 
         # st.write(text)
         if st.button('GENERATE'):
-            messages = [{"role": "system", "content": f"Generate a clean ordered report based on the provided data and the format. Perform simple AML risk analysis, and add context / natural language around the transaction activity and add industry types next to counterparty names" + prompt_text}]
+            messages = [{"role": "system", "content": f"Generate a clean ordered report based on the provided data and the format. Following is the Nature of Business of the client {nature}. Perform simple AML risk analysis, and add context / natural language around the transaction activity and add industry types next to counterparty names. Use the following counterparty sample output {counterparty_option}" + prompt_text}]
 
             def CustomChatGPT(user_input):
                 messages.append({"role": "user", "content": user_input})
