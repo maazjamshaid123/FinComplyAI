@@ -6,7 +6,7 @@ Based on the overall transactions already provided, perform a detailed Anti-Mone
 
 3. Recommendations: Provide recommendations for mitigating the identified risks and red flags. This may include enhanced due diligence on certain transactions or counterparties, increased monitoring of certain transaction types, or the implementation of additional controls.
 
-4. Counterparty Analysis: Analyze the counterparties involved in the transactions. Are there any counterparties that are associated with high-risk jurisdictions, industries, or have been subject to any negative media or sanctions? Provide a detailed analysis of the top 5 counterparties for Wires and ACH.
+4. Counterparty Analysis: Analyze the counterparties involved in the transactions. Are there any counterparties that are associated with high-risk jurisdictions, industries, or have been subject to any negative media or sanctions? Provide a detailed analysis of the {Counterparty Sample Output} counterparties for Wires and ACH.
 
 Please ensure that the analysis is concise, factual, and consistent with the provided data.
 
@@ -31,7 +31,7 @@ Breakdown of credits:
 2. Domestic Wires:
    - Total: ${{Total Domestic Wires}}
    - Number of wires: {{Number of Domestic Wires}}
-   - {Counterparty Sample Output:} counterparties: {{List of Top 5 Domestic Wire Counterparties}}
+   - {Counterparty Sample Output} counterparties: {{List of {Counterparty Sample Output} Domestic Wire Counterparties}}
 
 3. Check Deposits:
    - Total: ${{Total Check Deposits}}
@@ -66,7 +66,7 @@ Breakdown of debits:
 2. Domestic Payments:
    - Total: ${{Total Domestic Payments}}
    - Number of payments: {{Number of Domestic Payments}}
-   - {Counterparty Sample Output} payees: {{List of Top 5 Domestic Payment Payees}}
+   - {Counterparty Sample Output} payees: {{List of {Counterparty Sample Output} Domestic Payment Payees}}
 
 3. Check Payments:
    - Total: ${{Total Check Payments}}
