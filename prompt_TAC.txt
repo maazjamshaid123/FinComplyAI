@@ -31,7 +31,12 @@ Breakdown of credits:
 2. Domestic Wires:
    - Total: ${{Total Domestic Wires}}
    - Number of wires: {{Number of Domestic Wires}}
-   - {Counterparty Sample Output} counterparties: {{List of {Counterparty Sample Output} Domestic Wire Counterparties}}
+   - {Counterparty Sample Output} counterparties: 
+     - {{Domestic Wires Payee 1}}: ${{Amount 1}}
+     - {{Domestic Wires Payee 2}}: ${{Amount 2}}
+     - {{Domestic Wires Payee 3}}: ${{Amount 3}}
+     - {{Domestic Wires Payee 4}}: ${{Amount 4}}
+     - {{Domestic Wires Payee 5}}: ${{Amount 5}}
 
 3. Check Deposits:
    - Total: ${{Total Check Deposits}}
@@ -66,7 +71,12 @@ Breakdown of debits:
 2. Domestic Payments:
    - Total: ${{Total Domestic Payments}}
    - Number of payments: {{Number of Domestic Payments}}
-   - {Counterparty Sample Output} payees: {{List of {Counterparty Sample Output} Domestic Payment Payees}}
+   - {Counterparty Sample Output} payees: 
+     - {{Domestic Payments Payee 1}}: ${{Amount 1}}
+     - {{Domestic Payments Payee 2}}: ${{Amount 2}}
+     - {{Domestic Payments Payee 3}}: ${{Amount 3}}
+     - {{Domestic Payments Payee 4}}: ${{Amount 4}}
+     - {{Domestic Payments Payee 5}}: ${{Amount 5}}
 
 3. Check Payments:
    - Total: ${{Total Check Payments}}
