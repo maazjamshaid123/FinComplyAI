@@ -202,6 +202,7 @@ def show_tac():
 
         
         text = f"Number of Unique Transactions: {num_unique_transactions}\n"
+        text = f"Counterparty Sample Output: {counterparty_option}\n"
         text += f"Number of Unique Counterparties: {num_unique_counterparties}\n"
         text += f"Total Amount $: {total_amount}\n"
         text += f"Number of Credit Transactions: {num_credit_transactions}\n"
@@ -248,7 +249,7 @@ def show_tac():
 
         # st.write(text)
         if st.button('GENERATE'):
-            messages = [{"role": "system", "content": f"Generate a clean ordered report based on the provided data and the format. Following is the Nature of Business of the client {nature}. Perform simple AML risk analysis, and add context / natural language around the transaction activity and add industry types next to counterparty names. Use the following counterparty sample output {counterparty_option}" + prompt_text}]
+            messages = [{"role": "system", "content": f"Generate a clean ordered report based on the provided data and the format. Following is the Nature of Business of the client {nature}. Perform simple AML risk analysis, and add context / natural language around the transaction activity and add industry types next to counterparty names." + prompt_text}]
 
             def CustomChatGPT(user_input):
                 messages.append({"role": "user", "content": user_input})
