@@ -59,8 +59,13 @@ Breakdown of credits:
 
 6. International Wire In:
    - Total: ${{Total International Wire In}}
-   - Number of transfers: {{Number of International Wire In}}
-   - From Account {{Account From}} to Account {{Account To}}
+   - Number of wires: {{Number of International Wire In}}
+   - {Counterparty Sample Output} counterparties: 
+     - {{International Wire In Payee 1}} ({{Transactions Count 1}} transactions): ${{Amount 1}}
+     - {{International Wire In Payee 2}} ({{Transactions Count 2}} transactions): ${{Amount 2}}
+     - {{International Wire In Payee 3}} ({{Transactions Count 3}} transactions): ${{Amount 3}}
+     - {{International Wire In Payee 4}} ({{Transactions Count 4}} transactions): ${{Amount 4}}
+     - {{International Wire In Payee 5}} ({{Transactions Count 5}} transactions): ${{Amount 5}}
 
 
 DEBITS:
@@ -105,5 +110,10 @@ Breakdown of debits:
 
 6. International Wire Out:
    - Total: ${{Total International Wire Out}}
-   - Number of transfers: {{Number of International Wire Out}}
-   - From Account {{Account From}} to Account {{Account To}}
+   - Number of wires: {{Number of International Wire Out}}
+   - {Counterparty Sample Output} counterparties: 
+     - {{International Wire Out Payee 1}} ({{Transactions Count 1}} transactions): ${{Amount 1}}
+     - {{International Wire Out Payee 2}} ({{Transactions Count 2}} transactions): ${{Amount 2}}
+     - {{International Wire Out Payee 3}} ({{Transactions Count 3}} transactions): ${{Amount 3}}
+     - {{International Wire Out Payee 4}} ({{Transactions Count 4}} transactions): ${{Amount 4}}
+     - {{International Wire Out Payee 5}} ({{Transactions Count 5}} transactions): ${{Amount 5}}
