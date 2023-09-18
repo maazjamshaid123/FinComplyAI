@@ -57,6 +57,12 @@ Breakdown of credits:
    - Number of transfers: {{Number of Internal Transfer In}}
    - From Account {{Account From}} to Account {{Account To}}
 
+6. International Wire In:
+   - Total: ${{Total International Wire In}}
+   - Number of transfers: {{Number of International Wire In}}
+   - From Account {{Account From}} to Account {{Account To}}
+
+
 DEBITS:
 
 {{Number of Debits}} Debits totaled ${{Total Debits Amount}}.
@@ -95,4 +101,9 @@ Breakdown of debits:
 5. Internal Transfer Out:
    - Total: ${{Total Internal Transfer Out}}
    - Number of transfers: {{Number of Internal Transfer Out}}
+   - From Account {{Account From}} to Account {{Account To}}
+
+6. International Wire Out:
+   - Total: ${{Total International Wire Out}}
+   - Number of transfers: {{Number of International Wire Out}}
    - From Account {{Account From}} to Account {{Account To}}
