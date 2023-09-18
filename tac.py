@@ -207,6 +207,8 @@ def show_tac():
         num_intl_out = len(intl_out)
         intl_in_total_amount = intl_in['Amount $'].sum()
         intl_out_total_amount = intl_out['Amount $'].sum()
+        intl_in_counterparty_info = intl_in.groupby('Counterparty')['Amount $'].sum()
+        intl_out_counterparty_info = intl_out.groupby('Counterparty')['Amount $'].sum()
 
         
         text = f"Number of Unique Transactions: {num_unique_transactions}\n"
@@ -255,6 +257,13 @@ def show_tac():
         for counterparty, amount in wire_out_counterparty_info.items():
             text+= f"{counterparty}: {len(wire_out[wire_out['Counterparty'] == counterparty])} transactions, ${amount}\n"
 
+        text += f"\nInternational Wire In: {num_intl_in} transactions totaling ${intl_in_total_amount} primarily from:\n"
+        for counterparty, amount in intl_in_counterparty_info.items():
+            text+= f"{counterparty}: {len(intl_in[intl_in['Counterparty'] == counterparty])} transactions, ${amount}\n"
+                    
+        text += f"\nInternational Wire Out: {num_intl_out} transactions totaling ${intl_out_total_amount} primarily from:\n"
+        for counterparty, amount in intl_out_counterparty_info.items():
+            text+= f"{counterparty}: {len(intl_out[intl_out['Counterparty'] == counterparty])} transactions, ${amount}\n"
 
         prompt = 'prompt_TAC.txt'
         with open(prompt, 'r') as file:
