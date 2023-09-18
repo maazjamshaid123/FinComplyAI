@@ -200,6 +200,14 @@ def show_tac():
         it_in_total_amount = it_in['Amount $'].sum()
         it_out_total_amount = it_out['Amount $'].sum()
 
+        #Intl wire
+        intl_in = df[df['Transaction Description'] == 'International Wire In']
+        intl_out = df[df['Transaction Description'] == 'International Wire Out']
+        num_intl_in = len(intl_in)
+        num_intl_out = len(intl_out)
+        intl_in_total_amount = intl_in['Amount $'].sum()
+        intl_out_total_amount = intl_out['Amount $'].sum()
+
         
         text = f"Number of Unique Transactions: {num_unique_transactions}\n"
         text = f"Counterparty Sample Output: {counterparty_option}\n"
@@ -215,10 +223,16 @@ def show_tac():
         text += f"Total Number of Cash Withdrawals {num_cash_payment}\n"
         text += f"Range per deposit: ${min_cash_deposit} to ${max_cash_deposit} per deposit.\n"
         text += f"Range per withdrawal: ${min_cash_payment} to ${max_cash_payment} per payment.\n"
+                
         text += f"Total Number of Check Deposit {num_check_in}\n"
         text += f"Total Number of Check Payments {num_check_out}\n"
+                
         text += f"Total Number of Internal Transfer In {num_it_in}\n"
         text += f"Total Number of Internal Transfer Out {num_it_out}\n"
+                
+        text += f"Total Number of International Wire In {num_intl_in}\n"
+        text += f"Total Number of International Wire Out {num_intl_out}\n"
+                
         text += "FATF Country Risk Ratings:\n" + fatf_country_ratings.to_string(index=False) + "\n"
         text += "\nTransaction Description Totals:\n" + transaction_description_totals.to_string() + "\n"
         text += "\nCounterparty Totals:\n" + counterparty_totals.to_string() + "\n"
