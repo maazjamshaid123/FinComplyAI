@@ -49,11 +49,11 @@ python app.py --report
 ```
 
 ## Modules
-`app.py`: The main entry point for the application.
-`finbot.py`: Core logic for transaction analysis and compliance checks.
-`viz.py`: Handles data visualization and dashboard generation.
-`config.yaml`: Configuration file for setting up thresholds, rules, and other parameters.
-`tests/`: Unit and integration tests for various components.
+- `app.py`: The main entry point for the application.
+- `finbot.py`: Core logic for transaction analysis and compliance checks.
+- `viz.py`: Handles data visualization and dashboard generation.
+- `config.yaml`: Configuration file for setting up thresholds, rules, and other parameters.
+- `tests/`: Unit and integration tests for various components.
 
 ## Data
 The application works with CSV files containing financial transaction data. A sample dataset (data/sample_transactions.csv) is provided for testing purposes.
