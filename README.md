@@ -61,9 +61,9 @@ The application works with CSV files containing financial transaction data. A sa
 ## Contributing
 We welcome contributions! Please follow these steps:
 - Fork the repository.
-- Create a new branch (git checkout -b feature-branch).
-- Commit your changes (git commit -m 'Add some feature').
-- Push to the branch (git push origin feature-branch).
+- Create a new branch (`git checkout -b feature-branch`).
+- Commit your changes (`git commit -m 'Add some feature'`).
+- Push to the branch (`git push origin feature-branch`).
 - Open a pull request.
 Please ensure that your code adheres to the existing code style and passes all tests.
 
