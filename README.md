@@ -21,10 +21,52 @@ FinComplyAI is a comprehensive compliance management tool designed to help finan
 ## Installation
 Clone the repository and install the necessary dependencies:
 
-bash
 ```
 Copy code
 git clone https://github.com/maazjamshaid123/FinComplyAI.git
 cd FinComplyAI
 pip install -r requirements.txt
 ```
+
+## Usage
+To start the FinComplyAI application:
+```
+python app.py
+```
+You can modify the configuration settings in config.yaml to suit your environment.
+
+## Example Commands
+Run a full transaction scan:
+```
+python app.py --scan transactions.csv
+```
+
+## Generate a compliance report:
+```
+python app.py --report
+```
+
+## Modules
+`app.py`: The main entry point for the application.
+`finbot.py`: Core logic for transaction analysis and compliance checks.
+`viz.py`: Handles data visualization and dashboard generation.
+`config.yaml`: Configuration file for setting up thresholds, rules, and other parameters.
+`tests/`: Unit and integration tests for various components.
+
+## Data
+The application works with CSV files containing financial transaction data. A sample dataset (data/sample_transactions.csv) is provided for testing purposes.
+
+## Contributing
+We welcome contributions! Please follow these steps:
+- Fork the repository.
+- Create a new branch (git checkout -b feature-branch).
+- Commit your changes (git commit -m 'Add some feature').
+- Push to the branch (git push origin feature-branch).
+- Open a pull request.
+Please ensure that your code adheres to the existing code style and passes all tests.
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Contact
+For any questions or support, please reach out to email@example.com.
