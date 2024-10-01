@@ -24,7 +24,6 @@ FinComplyAI is a comprehensive compliance management tool designed to help finan
 Clone the repository and install the necessary dependencies:
 
 ```
-Copy code
 git clone https://github.com/maazjamshaid123/FinComplyAI.git
 cd FinComplyAI
 pip install -r requirements.txt
@@ -36,17 +35,6 @@ To start the FinComplyAI application:
 python app.py
 ```
 You can modify the configuration settings in config.yaml to suit your environment.
-
-## Example Commands
-Run a full transaction scan:
-```
-python app.py --scan transactions.csv
-```
-
-## Generate a compliance report:
-```
-python app.py --report
-```
 
 ## Modules
 - `app.py`: The main entry point for the application.
